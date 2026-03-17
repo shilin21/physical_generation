@@ -1,13 +1,116 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embedding Physical Reasoning into Diffusion-based Shadow Generation</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>My Project</h1>
-  <p>Short description of the project.</p>
-  <p><a href="https://github.com/USERNAME/REPO">Code</a></p>
+  <div class="container">
+    <header class="hero">
+      <h1>Embedding Physical Reasoning into Diffusion-based Shadow Generation</h1>
+
+      <p class="subtitle">
+        Physics-grounded shadow generation from monocular 3D geometry priors and
+        approximate light direction, with quality-aware diffusion conditioning.
+      </p>
+
+      <div class="authors">
+        <span>Shilin Hu</span>,
+        <span>Jingyi Xu</span>,
+        <span>Akshat Dave</span>,
+        <span>Dimitris Samaras</span>,
+        <span>Hieu Le</span>
+      </div>
+
+      <div class="institutions">
+        <div>Stony Brook University</div>
+      </div>
+
+      <div class="site-note">
+        This project page is currently under construction.
+      </div>
+
+      <div class="links">
+        <a href="https://arxiv.org/abs/2512.06174" target="_blank" rel="noopener noreferrer">Paper</a>
+        <a href="https://github.com/cvlab-stonybrook/ShadowGeneration" target="_blank" rel="noopener noreferrer">Code</a>
+        <a href="#citation">BibTeX</a>
+      </div>
+    </header>
+
+    <section class="section">
+      <h2>Abstract</h2>
+      <p>
+        Generating realistic shadows for inserted objects requires reasoning about
+        scene geometry and illumination. However, most existing methods operate
+        purely in image space, leaving the physical relationship between objects,
+        lighting, and shadows to be learned implicitly, often resulting in
+        misaligned or implausible shadows. We instead ground shadow generation in
+        the physics of shadow formation. Given a composite image and an object mask,
+        we recover approximate scene geometry and estimate a dominant light
+        direction to derive a physics-grounded shadow estimate via geometric
+        reasoning. While coarse, this estimate provides a spatial anchor for shadow
+        placement. Because illumination cannot always be uniquely inferred from a
+        single image, we predict confidence scores for both lighting and shadow cues
+        and use them to regulate their influence during generation. These cues —
+        shadow mask, light direction, and their confidences — condition a
+        diffusion-based generator that refines the estimate into a realistic
+        shadow. Experiments on DESOBAV2 show that our method improves both shadow
+        realism and localization, achieving 23% lower shadow-region RMSE and 30%
+        lower shadow-region BER over prior state-of-the-art.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Overview</h2>
+      <div class="figure-block">
+        <img src="assets/framework.png" alt="Framework overview figure" />
+      </div>
+      <p class="caption">
+        Overview of the proposed framework. A light predictor estimates a 3D light
+        direction, which is combined with monocular point-map geometry to form a
+        physics-based shadow prior. A mask predictor and a quality estimator then
+        provide shadow and confidence cues that condition a diffusion model through
+        both spatial control and global cross-attention.
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>Results</h2>
+      <div class="figure-grid">
+        <div class="figure-item">
+          <img src="assets/qualitative_results.png" alt="Qualitative comparison results" />
+          <p class="caption">
+            Qualitative comparison with prior methods. Our method produces shadows
+            that better align with object geometry and scene illumination in both
+            BOS and BOS-free settings.
+          </p>
+        </div>
+
+        <div class="figure-item">
+          <img src="assets/quantitative_results.png" alt="Quantitative comparison results" />
+          <p class="caption">
+            Quantitative results on DESOBAV2. The proposed method improves both
+            image fidelity and shadow localization, with especially strong gains on
+            local shadow-region metrics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="citation">
+      <h2>Citation</h2>
+      <pre><code>@misc{hu2025physicsgroundedshadowgenerationmonocular,
+      title={Physics-Grounded Shadow Generation from Monocular 3D Geometry Priors and Approximate Light Direction}, 
+      author={Shilin Hu and Jingyi Xu and Akshat Dave and Dimitris Samaras and Hieu Le},
+      year={2025},
+      eprint={2512.06174},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2512.06174}, 
+}</code></pre>
+    </section>
+  </div>
 </body>
 </html>
