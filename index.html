@@ -51,18 +51,14 @@
           </p>
         </div>
 
-        <div class="figure-card">
-          <img src="assets/teaser.png" alt="Teaser figure" />
-        </div>
+        <img class="section-image" src="assets/teaser.png" alt="Teaser figure" />
       </div>
     </section>
 
     <section class="section">
       <h2>Abstract</h2>
       <div class="content-stack">
-        <div class="figure-card">
-          <img src="assets/O123.png" alt="Framework figure" />
-        </div>
+        <img class="section-image" src="assets/O123.png" alt="Framework figure" />
 
         <div class="text-card">
           <p class="section-text">
@@ -93,9 +89,7 @@
 
       <div class="results-subsection">
         <h3>Quantitative Results</h3>
-        <div class="figure-card">
-          <img src="assets/quan.png" alt="Quantitative comparison table on DESOBAV2" />
-        </div>
+        <img class="result-image" src="assets/quan.png" alt="Quantitative comparison table on DESOBAV2" />
         <p class="results-caption">
           Comparison with state-of-the-art methods on DESOBAV2. We report global (G)
           and local (L, shadow-region) RMSE, SSIM, and BER for both BOS and BOS-free
@@ -106,16 +100,46 @@
 
       <div class="results-subsection">
         <h3>Effect of Quality Score Estimation</h3>
-        <div class="results-placeholder">
-          <p>Figure and discussion for quality score estimation will be added here.</p>
-        </div>
+        <img class="result-image" src="assets/q.png" alt="Effect of quality score estimation" />
+        <p class="results-caption">
+          Visualization of quality-guided generation. When unreliable conditioning is
+          forced with <strong>q = 1</strong>, errors in the shadow and lighting cues are
+          directly propagated to the result. Using the predicted quality scores lets the
+          model reduce the influence of inaccurate guidance and produce more plausible
+          shadows and cleaner object structure.
+        </p>
       </div>
 
       <div class="results-subsection">
         <h3>Qualitative Results</h3>
-        <div class="results-placeholder">
-          <p>Qualitative comparison figure and caption will be added here.</p>
+
+        <div class="carousel-stage" aria-label="Qualitative results carousel">
+          <button class="carousel-btn prev" type="button" aria-label="Previous image">
+            <span>&#10094;</span>
+          </button>
+
+          <div class="carousel-frame">
+            <img
+              id="qual-carousel-image"
+              class="result-image carousel-image"
+              src="assets/qualsota.png"
+              alt="Qualitative results image"
+            />
+          </div>
+
+          <button class="carousel-btn next" type="button" aria-label="Next image">
+            <span>&#10095;</span>
+          </button>
         </div>
+
+        <div class="carousel-dots" id="carousel-dots"></div>
+
+        <p class="results-caption">
+          Visual results in both BOS (with background reference object–shadow pairs)
+          and BOS-free (single object–shadow pair). Our method produces higher image
+          fidelity and more accurate shadow masks that better respect
+          occluder–receiver–illumination relationships.
+        </p>
       </div>
     </section>
 
@@ -132,5 +156,65 @@
 }</code></pre>
     </section>
   </div>
+
+  <script>
+    const carouselImages = [
+      "assets/qualsota.png",
+      "assets/qfree1.png",
+      "assets/qfree2.png",
+      "assets/qbos1.png",
+      "assets/qbos2.png"
+    ];
+
+    const carouselAlt = [
+      "Qualitative comparison overview",
+      "BOS-free qualitative result 1",
+      "BOS-free qualitative result 2",
+      "BOS qualitative result 1",
+      "BOS qualitative result 2"
+    ];
+
+    let currentCarouselIndex = 0;
+
+    const carouselImage = document.getElementById("qual-carousel-image");
+    const dotsContainer = document.getElementById("carousel-dots");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
+
+    function renderDots() {
+      dotsContainer.innerHTML = "";
+      carouselImages.forEach((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot" + (index === currentCarouselIndex ? " active" : "");
+        dot.setAttribute("aria-label", `Go to image ${index + 1}`);
+        dot.addEventListener("click", () => {
+          currentCarouselIndex = index;
+          updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateCarousel() {
+      carouselImage.src = carouselImages[currentCarouselIndex];
+      carouselImage.alt = carouselAlt[currentCarouselIndex];
+      renderDots();
+    }
+
+    prevBtn.addEventListener("click", () => {
+      currentCarouselIndex =
+        (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener("click", () => {
+      currentCarouselIndex =
+        (currentCarouselIndex + 1) % carouselImages.length;
+      updateCarousel();
+    });
+
+    updateCarousel();
+  </script>
 </body>
 </html>
