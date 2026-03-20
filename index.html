@@ -37,50 +37,56 @@
     </header>
 
     <section class="section">
-      <div class="figure-stack">
+      <h2>TL;DR</h2>
+      <div class="content-stack">
+        <div class="text-card">
+          <p class="section-text">
+            We propose a physics-grounded diffusion-based shadow generation pipeline
+            that leverages monocular 3D geometry to recover a dominant light
+            direction, then derives a coarse shadow estimate via geometric ray-based
+            reasoning to anchor shadow placement. To account for ambiguous
+            illumination, we predict confidence scores for both the lighting and
+            shadow cues and use them to modulate their influence during generation,
+            producing photorealistic shadows with improved localization and geometric
+            consistency.
+          </p>
+        </div>
+
         <div class="figure-card">
           <img src="assets/teaser.png" alt="Teaser figure" />
-        </div>
-        <div class="figure-card">
-          <img src="assets/O123.png" alt="Framework figure" />
         </div>
       </div>
     </section>
 
     <section class="section">
-      <p class="tldr-text">
-        <strong>TL;DR.</strong> We propose a physics-grounded diffusion-based shadow
-        generation pipeline that leverages monocular 3D geometry to recover a
-        dominant light direction, then derives a coarse shadow estimate via
-        geometric ray-based reasoning to anchor shadow placement. To account for
-        ambiguous illumination, we predict confidence scores for both the lighting
-        and shadow cues and use them to modulate their influence during generation,
-        producing photorealistic shadows with improved localization and geometric
-        consistency.
-      </p>
-    </section>
-
-    <section class="section">
       <h2>Abstract</h2>
-      <p>
-        Generating realistic shadows for inserted objects requires reasoning about
-        scene geometry and illumination. However, most existing methods operate
-        purely in image space, leaving the physical relationship between objects,
-        lighting, and shadows to be learned implicitly, often resulting in
-        misaligned or implausible shadows. We instead ground shadow generation in
-        the physics of shadow formation. Given a composite image and an object mask,
-        we recover approximate scene geometry and estimate a dominant light
-        direction to derive a physics-grounded shadow estimate via geometric
-        reasoning. While coarse, this estimate provides a spatial anchor for shadow
-        placement. Because illumination cannot always be uniquely inferred from a
-        single image, we predict confidence scores for both lighting and shadow cues
-        and use them to regulate their influence during generation. These cues —
-        shadow mask, light direction, and their confidences — condition a
-        diffusion-based generator that refines the estimate into a realistic
-        shadow. Experiments on DESOBAV2 show that our method improves both shadow
-        realism and localization, achieving 23% lower shadow-region RMSE and 30%
-        lower shadow-region BER over prior state-of-the-art.
-      </p>
+      <div class="content-stack">
+        <div class="figure-card">
+          <img src="assets/O123.png" alt="Framework figure" />
+        </div>
+
+        <div class="text-card">
+          <p class="section-text">
+            Generating realistic shadows for inserted objects requires reasoning about
+            scene geometry and illumination. However, most existing methods operate
+            purely in image space, leaving the physical relationship between objects,
+            lighting, and shadows to be learned implicitly, often resulting in
+            misaligned or implausible shadows. We instead ground shadow generation in
+            the physics of shadow formation. Given a composite image and an object mask,
+            we recover approximate scene geometry and estimate a dominant light
+            direction to derive a physics-grounded shadow estimate via geometric
+            reasoning. While coarse, this estimate provides a spatial anchor for shadow
+            placement. Because illumination cannot always be uniquely inferred from a
+            single image, we predict confidence scores for both lighting and shadow cues
+            and use them to regulate their influence during generation. These cues —
+            shadow mask, light direction, and their confidences — condition a
+            diffusion-based generator that refines the estimate into a realistic
+            shadow. Experiments on DESOBAV2 show that our method improves both shadow
+            realism and localization, achieving 23% lower shadow-region RMSE and 30%
+            lower shadow-region BER over prior state-of-the-art.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section class="section">
