@@ -144,13 +144,14 @@ body {
   padding-bottom: 10px;
 }
 
-.figure-stack {
+.content-stack {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.figure-card {
+.figure-card,
+.text-card {
   background: #fbfcff;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -166,7 +167,11 @@ body {
   background: #ffffff;
 }
 
-.tldr-text {
+.text-card {
+  padding: 22px 22px 18px;
+}
+
+.section-text {
   margin: 0;
   font-size: 1rem;
   color: #334155;
@@ -231,5 +236,9 @@ code {
 
   .links a {
     width: 100%;
+  }
+
+  .text-card {
+    padding: 18px 16px 16px;
   }
 }
