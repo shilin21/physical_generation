@@ -12,16 +12,17 @@
       <h1>Embedding Physical Reasoning into Diffusion-based Shadow Generation</h1>
 
       <div class="authors">
-        <span>Shilin Hu</span>,
-        <span>Jingyi Xu</span>,
-        <span>Akshat Dave</span>,
-        <span>Dimitris Samaras</span>,
-        <span>Hieu Le</span>
+        <span>Shilin Hu<sup>1</sup></span>,
+        <span>Jingyi Xu<sup>1</sup></span>,
+        <span>Akshat Dave<sup>1</sup></span>,
+        <span>Dimitris Samaras<sup>1</sup></span>,
+        <span>Hieu Le<sup>2</sup></span>
       </div>
 
       <div class="institutions">
-        <div>Stony Brook University</div>
-        <div>UNC Charlotte</div>
+        <span><sup>1</sup> Stony Brook University</span>
+        <span class="inst-sep">•</span>
+        <span><sup>2</sup> UNC Charlotte</span>
       </div>
 
       <div class="site-note">
@@ -32,6 +33,40 @@
         <a href="https://arxiv.org/abs/2512.06174" target="_blank" rel="noopener noreferrer">Paper</a>
         <a href="https://github.com/cvlab-stonybrook/ShadowGeneration" target="_blank" rel="noopener noreferrer">Code</a>
         <a href="#citation">BibTeX</a>
+      </div>
+
+      <div class="hero-media">
+        <div class="media-card">
+          <object data="assets/teaser.pdf" type="application/pdf" class="pdf-frame">
+            <p>
+              Unable to display the PDF preview.
+              <a href="assets/teaser.pdf" target="_blank" rel="noopener noreferrer">Open teaser.pdf</a>
+            </p>
+          </object>
+        </div>
+
+        <div class="media-card">
+          <object data="assets/O123.pdf" type="application/pdf" class="pdf-frame">
+            <p>
+              Unable to display the PDF preview.
+              <a href="assets/O123.pdf" target="_blank" rel="noopener noreferrer">Open O123.pdf</a>
+            </p>
+          </object>
+        </div>
+      </div>
+
+      <div class="tldr">
+        <div class="tldr-label">TL;DR</div>
+        <p>
+          We propose a physics-grounded diffusion-based shadow generation pipeline
+          that leverages monocular 3D geometry to recover a dominant light
+          direction, then derives a coarse shadow estimate via geometric ray-based
+          reasoning to anchor shadow placement. To account for ambiguous
+          illumination, we predict confidence scores for both the lighting and
+          shadow cues and use them to modulate their influence during generation,
+          producing photorealistic shadows with improved localization and geometric
+          consistency.
+        </p>
       </div>
     </header>
 
@@ -59,28 +94,10 @@
     </section>
 
     <section class="section">
-      <h2>Overview</h2>
-      <div class="figure-block">
-        <img src="assets/framework.png" alt="Framework overview figure" />
-      </div>
-      <p class="caption">
-        Overview of the proposed framework. A light predictor estimates a 3D light
-        direction, which is combined with monocular point-map geometry to form a
-        physics-based shadow prior. A mask predictor and a quality estimator then
-        provide shadow and confidence cues that condition a diffusion model through
-        both spatial control and global cross-attention.
-      </p>
-    </section>
-
-    <section class="section">
       <h2>Results</h2>
-      <div class="figure-block">
-        <img src="assets/results.png" alt="Qualitative and quantitative results" />
+      <div class="results-placeholder">
+        <p>Results figure and caption will be added here.</p>
       </div>
-      <p class="caption">
-        Representative results showing improved shadow realism and localization
-        compared with prior methods.
-      </p>
     </section>
 
     <section class="section" id="citation">
