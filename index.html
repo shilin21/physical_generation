@@ -34,41 +34,31 @@
         <a href="https://github.com/cvlab-stonybrook/ShadowGeneration" target="_blank" rel="noopener noreferrer">Code</a>
         <a href="#citation">BibTeX</a>
       </div>
-
-      <div class="hero-media">
-        <div class="media-card">
-          <object data="assets/teaser.pdf" type="application/pdf" class="pdf-frame">
-            <p>
-              Unable to display the PDF preview.
-              <a href="assets/teaser.pdf" target="_blank" rel="noopener noreferrer">Open teaser.pdf</a>
-            </p>
-          </object>
-        </div>
-
-        <div class="media-card">
-          <object data="assets/O123.pdf" type="application/pdf" class="pdf-frame">
-            <p>
-              Unable to display the PDF preview.
-              <a href="assets/O123.pdf" target="_blank" rel="noopener noreferrer">Open O123.pdf</a>
-            </p>
-          </object>
-        </div>
-      </div>
-
-      <div class="tldr">
-        <div class="tldr-label">TL;DR</div>
-        <p>
-          We propose a physics-grounded diffusion-based shadow generation pipeline
-          that leverages monocular 3D geometry to recover a dominant light
-          direction, then derives a coarse shadow estimate via geometric ray-based
-          reasoning to anchor shadow placement. To account for ambiguous
-          illumination, we predict confidence scores for both the lighting and
-          shadow cues and use them to modulate their influence during generation,
-          producing photorealistic shadows with improved localization and geometric
-          consistency.
-        </p>
-      </div>
     </header>
+
+    <section class="section">
+      <div class="figure-stack">
+        <div class="figure-card">
+          <img src="assets/teaser.png" alt="Teaser figure" />
+        </div>
+        <div class="figure-card">
+          <img src="assets/O123.png" alt="Framework figure" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="tldr-text">
+        <strong>TL;DR.</strong> We propose a physics-grounded diffusion-based shadow
+        generation pipeline that leverages monocular 3D geometry to recover a
+        dominant light direction, then derives a coarse shadow estimate via
+        geometric ray-based reasoning to anchor shadow placement. To account for
+        ambiguous illumination, we predict confidence scores for both the lighting
+        and shadow cues and use them to modulate their influence during generation,
+        producing photorealistic shadows with improved localization and geometric
+        consistency.
+      </p>
+    </section>
 
     <section class="section">
       <h2>Abstract</h2>
