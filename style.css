@@ -242,3 +242,103 @@ code {
     padding: 18px 16px 16px;
   }
 }
+
+.results-subsection + .results-subsection {
+  margin-top: 30px;
+}
+
+.results-subsection h3 {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.results-caption {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.results-table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+  background: #ffffff;
+}
+
+.results-table th,
+.results-table td {
+  padding: 10px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.results-table thead th {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+.results-table thead tr:first-child th {
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.results-table td.method,
+.results-table th:first-child {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  background: #ffffff;
+  z-index: 1;
+}
+
+.results-table thead th:first-child {
+  background: #f8fafc;
+  z-index: 2;
+}
+
+.results-table tbody tr:hover td {
+  background: #fafcff;
+}
+
+.results-table tbody tr:hover td.method {
+  background: #fafcff;
+}
+
+.results-table .group-divider td {
+  border-top: 2px solid #cbd5e1;
+}
+
+.results-table .ours-row td {
+  border-top: 2px solid #94a3b8;
+  background: #f8fbff;
+}
+
+.results-table .ours-row td.method {
+  background: #f8fbff;
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .results-subsection h3 {
+    font-size: 1.08rem;
+  }
+
+  .results-table {
+    font-size: 0.88rem;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 9px 8px;
+  }
+}
